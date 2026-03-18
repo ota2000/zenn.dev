@@ -107,7 +107,8 @@ jobs:
 
       # プレビュー環境に対して検証
       - name: Validate Lightdash preview
-        run: lightdash validate --preview --skip-dbt-compile        env:
+        run: lightdash validate --preview --skip-dbt-compile
+        env:
           CI: true
 
       # プレビュー環境を削除（成功・失敗問わず）
