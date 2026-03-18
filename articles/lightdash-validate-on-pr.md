@@ -95,7 +95,7 @@ jobs:
       # プレビュー環境を作成（本番コンテンツはコピーしない）
       - id: preview
         name: Create Lightdash preview
-        run: lightdash start-preview --name "${{ env.PREVIEW_NAME }}" --skip-dbt-compile --skip-warehouse-catalog --skip-copy-content
+        run: lightdash start-preview --name "${{ env.PREVIEW_NAME }}" --skip-dbt-compile --skip-copy-content
         env:
           CI: true
 
