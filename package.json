@@ -1,23 +1,24 @@
 {
   "name": "zenn.dev",
   "version": "1.0.0",
-  "description": "* [📘 How to use](https://zenn.dev/zenn/articles/zenn-cli-guide) * [📘 Markdown guide](https://zenn.dev/zenn/articles/markdown-guide)",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preview": "zenn preview",
+    "new:article": "zenn new:article",
+    "new:book": "zenn new:book",
+    "lint": "textlint articles/**/*.md",
+    "lint:fix": "textlint --fix articles/**/*.md"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OTA2000/zenn.dev.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OTA2000/zenn.dev/issues"
-  },
-  "homepage": "https://github.com/OTA2000/zenn.dev#readme",
-  "dependencies": {
-    "zenn-cli": "^0.1.153"
+  "devDependencies": {
+    "zenn-cli": "latest",
+    "textlint": "latest",
+    "textlint-rule-preset-ja-technical-writing": "latest",
+    "textlint-rule-preset-jtf-style": "latest",
+    "@textlint-ja/textlint-rule-preset-ai-writing": "latest",
+    "@textlint-ja/textlint-rule-no-synonyms": "latest",
+    "textlint-rule-ja-hiragana-keishikimeishi": "latest",
+    "textlint-rule-ja-hiragana-fukushi": "latest",
+    "textlint-rule-ja-hiragana-hojodoushi": "latest",
+    "textlint-rule-no-hoso-kinshi-yogo": "latest"
   }
 }
