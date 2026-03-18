@@ -8,7 +8,7 @@ published: true
 
 ## やりたいこと
 
-Lightdash で Dashboards as Code を運用していると、dbt モデルの変更やダッシュボード YAML の変更でチャートが壊れることがあります。これを main マージ後のデプロイ時ではなく、PR の段階で検知したい。
+Lightdash で Dashboards as Code を運用していると、dbt モデルやダッシュボード YAML の変更でチャートの破損が起きることがあります。これを main マージ後のデプロイ時ではなく、PR の段階で検知したい。
 
 `lightdash validate` コマンドを使えばチャート・ダッシュボードの整合性を検証できますが、そのまま実行すると本番プロジェクトに対する検証になり、PR で追加した新規ダッシュボードは検証対象に含まれません。
 
@@ -19,8 +19,8 @@ Lightdash で Dashboards as Code を運用していると、dbt モデルの変�
 - Lightdash: セルフホスト（Cloud Run）
 - Lightdash CLI: v0.2520.2
 - dbt Core: GitHub Actions 上で実行
-- データウェアハウス: BigQuery
-- 認証: IAP + Google OAuth
+- データウェアハウス： BigQuery
+- 認証： IAP + Google OAuth
 
 ## 仕組み
 
@@ -42,7 +42,7 @@ PR で dbt 関連のファイルが変更されると、以下のフローが自
 
 ### `start-preview` の output から preview UUID を取得する
 
-`lightdash upload` には `--preview` オプションがないため、プレビュー環境にアップロードするにはプロジェクト UUID を明示的に指定する必要があります。
+`lightdash upload` には `--preview` オプションがないため、プレビュー環境にアップロードするにはプロジェクト UUID を明示的に指定しなければなりません。
 
 `lightdash start-preview` は CI 環境（`CI=true`）で実行すると、GitHub Actions の step output として `project_uuid` を出力します。これを `steps.<id>.outputs.project_uuid` で取得し、`upload --project` に渡します。
 
