@@ -46,13 +46,6 @@ PR で dbt 関連のファイルが変更されると、以下のフローが自
 
 `lightdash start-preview` は CI 環境（`CI=true`）で実行すると、GitHub Actions の step output として `project_uuid` を出力します。これを `steps.<id>.outputs.project_uuid` で取得し、`upload --project` に渡します。
 
-### `--skip-warehouse-catalog` でウェアハウスアクセスを省略する
-
-`lightdash validate` はデフォルトでデータウェアハウスに接続してテーブルメタデータを取得します。CI の Service Account に一部テーブルへのアクセス権限がない場合、権限エラーで失敗します。
-
-`--skip-warehouse-catalog` を付けると YAML 定義ベースの型情報で検証するため、ウェアハウスへの接続が不要になります。チャート・ダッシュボードの破損検知にはこれで十分です。
-
-ただし、このオプションを外せば実際のテーブルスキーマと突き合わせた検証が可能になります（YAML には定義があるがテーブルにカラムが存在しない、型の不一致など）。CI の Service Account に十分な権限がある場合は外した方がより精度の高い検証ができます。
 
 ## ワークフロー
 
@@ -114,8 +107,7 @@ jobs:
 
       # プレビュー環境に対して検証
       - name: Validate Lightdash preview
-        run: lightdash validate --preview --skip-dbt-compile --skip-warehouse-catalog
-        env:
+        run: lightdash validate --preview --skip-dbt-compile        env:
           CI: true
 
       # プレビュー環境を削除（成功・失敗問わず）
