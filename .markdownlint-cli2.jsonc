@@ -1,0 +1,16 @@
+{
+  "config": {
+    // Zennのfrontmatter(---)を許可
+    "MD041": false, // first-line-heading - frontmatterがあるため無効化
+    "MD025": false, // single-h1 - Zenn記事はタイトルがfrontmatterにあるため
+    "MD013": false, // line-length - 日本語記事は長くなりがち
+    "MD033": false, // no-inline-html - Zenn独自記法でHTMLを使う場合がある
+    "MD034": false, // no-bare-urls - ZennではURLをそのまま記述するとカード表示になる
+    "MD024": { "siblings_only": true }, // no-duplicate-heading - 同階層のみチェック
+    "MD046": { "style": "fenced" }, // code-block-style - fencedに統一
+    "MD048": { "style": "backtick" }, // code-fence-style - backtickに統一
+    "MD049": { "style": "underscore" }, // emphasis-style
+    "MD050": { "style": "asterisk" } // strong-style
+  },
+  "globs": ["articles/**/*.md"]
+}
