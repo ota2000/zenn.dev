@@ -32,7 +32,7 @@ PR で dbt 関連のファイルが変更されると、以下のフローが自
 4. `lightdash validate --preview` でプレビュー環境に対して検証
 5. `lightdash stop-preview` でプレビュー環境を削除
 
-ポイントは以下の3つです。
+ポイントは2つあります。
 
 ### `--skip-copy-content` で空のプレビューを作る
 
@@ -143,4 +143,4 @@ validate 自体は20秒程度なので、dbt の変更がある PR すべてで�
 
 `lightdash start-preview` + `lightdash upload` + `lightdash validate --preview` の組み合わせにより、PR 単位でダッシュボードの完全な検証ができるようになりました。
 
-BI as Code で重要なのは、ダッシュボードの定義をコード管理するだけでなく、**ソフトウェアエンジニアリングと同じように CI で検証する**ことだと思います。
+ダッシュボードの定義をコード管理するなら、CI で検証するところまでやらないと片手落ちだと思っています。
